@@ -17,6 +17,7 @@ export interface FeaturedImageDB {
 export interface PostDB {
     author: AuthorDB;
     categories: Array<CategoriesDB>;
+    content?: ContentDB;
     createdAt: Date;
     excerpt: string;
     featuredImage: FeaturedImageDB
@@ -31,4 +32,15 @@ export interface AuthorDB {
     photo?: {
         url: string;
     } | null;
+}
+
+export interface ContentDB {
+    raw: {
+        children: Array<{
+            type: string,
+            children: Array<{
+                text: string
+            }>
+        }>
+    }
 }
