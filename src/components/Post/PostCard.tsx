@@ -1,27 +1,9 @@
 import moment from "moment";
 import Link from "next/link";
+import { PostDB } from "../../types";
 
 export interface PostCardProps {
-  post: {
-    author: Author;
-    categories: [];
-    createdAt: Date;
-    excerpt: string;
-    featuredImage: {
-      url: string;
-    };
-    slug: string;
-    title: string;
-  };
-}
-
-interface Author {
-  bio: string;
-  id: string;
-  name: string;
-  photo?: {
-    url: string;
-  } | null;
+  post: PostDB;
 }
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {

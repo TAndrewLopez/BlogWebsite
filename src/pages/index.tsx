@@ -1,6 +1,6 @@
 import { Categories, PostWidget, PostCard } from "@/components";
 import { getPosts } from "@/services";
-import { NextPage } from "next";
+import { GetServerSideProps, GetStaticProps, NextPage } from "next";
 
 type HomeProps = {
   posts: Array<any>;
@@ -26,13 +26,13 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const posts = (await getPosts()) || [];
-
   return {
     props: {
       posts,
     },
   };
 };
+
 export default Home;

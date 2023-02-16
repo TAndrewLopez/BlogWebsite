@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { getCategories } from "@/services";
-import { CategoriesDB } from "../types";
+import { CategoriesDB } from "../../types";
 
 const Header: React.FC = () => {
   const [categories, setCategories] = useState<Array<CategoriesDB>>([]);

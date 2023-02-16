@@ -2,19 +2,11 @@ import moment from "moment";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { getRecentPosts, getSimilarPosts } from "@/services";
+import { RelatedPostDB } from "../../types";
 
 interface PostWidgetProps {
-  slug: string;
-  categories: Array<string>;
-}
-
-interface RelatedPostDB {
-  createdAt: string;
-  featuredImage: {
-    url: string;
-  };
-  slug: string;
-  title: string;
+  slug?: string;
+  categories?: Array<string>;
 }
 
 const PostWidget: React.FC<PostWidgetProps> = ({ categories, slug }) => {
