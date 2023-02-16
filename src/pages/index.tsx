@@ -1,6 +1,7 @@
 import { Categories, PostWidget, PostCard } from "../components";
 import { getPosts } from "@/services";
 import { NextPage } from "next";
+import { PostCardProps } from "@/components/PostCard";
 
 const posts: Array<{ title: string; excerpt: string }> = [
   { title: "Introduction", excerpt: "Learn something about your developer" },
@@ -12,17 +13,17 @@ const posts: Array<{ title: string; excerpt: string }> = [
   },
 ];
 
-interface HomeProps {
-  posts: [];
-}
+type HomeProps = {
+  posts: Array<any>;
+};
 
 const Home: NextPage<HomeProps> = ({ posts }) => {
   return (
     <div className="container px-10 mx-auto mb-8">
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
         <div className="col-span-1 lg:col-span-8">
-          {posts?.map((post, i) => (
-            <PostCard post={post} key={i} />
+          {posts.map((post, i) => (
+            <PostCard post={post.node} key={i} />
           ))}
         </div>
         <div className="col-span-1 lg:col-span-4">
