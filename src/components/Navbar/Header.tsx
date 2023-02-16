@@ -1,15 +1,15 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
-
-const categories: Array<{ name: string; slug: string }> = [
-  {
-    name: "React",
-    slug: "react",
-  },
-  { name: "Web Development", slug: "webdev" },
-];
+import { getCategories } from "@/services";
+import { CategoriesDB } from "../types";
 
 const Header: React.FC = () => {
+  const [categories, setCategories] = useState<Array<CategoriesDB>>([]);
+
+  useEffect(() => {
+    getCategories().then((newCategories) => setCategories(newCategories));
+  }, []);
+
   return (
     <div className="container px-10 mx-auto mb-8">
       <div className="inline-block w-full py-8 border-b border-blue-400">

@@ -1,17 +1,6 @@
-import { Categories, PostWidget, PostCard } from "../components";
+import { Categories, PostWidget, PostCard } from "@/components";
 import { getPosts } from "@/services";
 import { NextPage } from "next";
-import { PostCardProps } from "@/components/PostCard";
-
-const posts: Array<{ title: string; excerpt: string }> = [
-  { title: "Introduction", excerpt: "Learn something about your developer" },
-  { title: "Seconds Post", excerpt: "We are blogging now" },
-  {
-    title: "Third Post",
-    excerpt:
-      "Now I can write post that are so long because it is so natural and I can do this all day every day. The trick is not to overthink but just go with the flow, be like water, RIP Bruce Lee",
-  },
-];
 
 type HomeProps = {
   posts: Array<any>;
