@@ -44,3 +44,9 @@ export interface ContentDB {
         }>
     }
 }
+
+export interface CommentDB {
+    createdAt: string
+    name: string
+    comment: string
+}
