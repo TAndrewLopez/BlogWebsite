@@ -13,7 +13,6 @@ const handler = async (
     res: NextApiResponse<Data>
 ) => {
     if (req.method === 'POST') {
-        ``
         const { name, email, slug, comment } = req.body;
         console.log(graphCMS_token)
         const graphQLClient = new GraphQLClient((graphqlAPI), {
@@ -29,7 +28,7 @@ const handler = async (
             `;
 
         try {
-            const result = await graphQLClient.request(query, req.body)
+            const result = await graphQLClient.request(query, { name, email, slug, comment })
             return res.status(200).send(result)
         } catch (error: any) {
             console.log(error)

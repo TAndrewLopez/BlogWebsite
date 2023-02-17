@@ -1,0 +1,49 @@
+import { PostDB } from "@/types";
+import moment from "moment";
+import Image from "next/image";
+import Link from "next/link";
+
+interface FeaturedPostCardProps {
+  post: PostDB;
+}
+
+const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({ post }) => {
+  return (
+    <div className="relative h-72">
+      <div
+        className="absolute inline-block w-full bg-center bg-no-repeat bg-cover rounded-lg shadow-md h-72"
+        style={{ backgroundImage: `url('${post.featuredImage.url}')` }}
+      />
+      <div className="absolute w-full bg-center rounded-lg opacity-50 bg-gradient-to-b from-gray-400 via-gray-700 to-black h-72" />
+      {/*  */}
+      <div className="absolute flex flex-col items-center justify-center w-full h-full p-4 rounded-lg">
+        <p className="mb-4 text-xs font-semibold text-white text-shadow">
+          {moment(post.createdAt).format("MMM DD, YYYY")}
+        </p>
+        <p className="mb-4 text-2xl font-semibold text-center text-white text-shadow">
+          {post.title}
+        </p>
+        <div>
+          {post.author.photo?.url && (
+            <Image
+              unoptimized
+              alt={post.author.name}
+              height="30"
+              width="30"
+              className="align-middle rounded-full drop-shadow-lg"
+              src={post.author.photo?.url}
+            />
+          )}
+          <p className="inline font-medium text-white align-middle text-shadow ml-02">
+            {post.author.name}
+          </p>
+        </div>
+      </div>
+      <Link href={`/post/${post.slug}`}>
+        <span className="absolute w-full h-full cursor-pointer" />
+      </Link>
+    </div>
+  );
+};
+
+export default FeaturedPostCard;

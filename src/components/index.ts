@@ -1,3 +1,7 @@
+// * FEATURED   
+export { default as FeaturedPost } from './Featured/FeaturedPost'
+export { default as FeaturedPostCard } from './Featured/FeaturedPostCard'
+
 // * LAYOUT
 export { default as Layout } from './Layout/Layout'
 
@@ -13,4 +17,5 @@ export { default as PostDetail } from './Post/PostDetail'
 
 // * UTIL
 export { default as PostWidget } from './util/PostWidget'
+export { default as Loader } from './util/Loader'
 export { default as Categories } from './util/Categories'

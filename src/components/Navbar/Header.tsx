@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from "react";
-import Link from "next/link";
 import { getCategories } from "@/services";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { CategoriesDB } from "../../types";
 
 const Header: React.FC = () => {

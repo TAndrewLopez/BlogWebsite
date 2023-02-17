@@ -1,4 +1,4 @@
-import { Categories, PostWidget, PostCard } from "@/components";
+import { Categories, PostWidget, PostCard, FeaturedPost } from "@/components";
 import { getPosts } from "@/services";
 import { GetServerSideProps, GetStaticProps, NextPage } from "next";
 
@@ -9,6 +9,7 @@ type HomeProps = {
 const Home: NextPage<HomeProps> = ({ posts }) => {
   return (
     <div className="container px-10 mx-auto mb-8">
+      <FeaturedPost />
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
         <div className="col-span-1 lg:col-span-8">
           {posts.map((post, i) => (
@@ -26,7 +27,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = (await getPosts()) || [];
   return {
     props: {

@@ -28,10 +28,8 @@ const Comments: React.FC<CommentsProps> = ({ slug }) => {
               className="pb-4 mb-4 border-b border-gray-100"
               key={comment.createdAt}>
               <p className="mb-4">
-                <span className="font-semibold">
-                  {comment.name} on{" "}
-                  {moment(comment.createdAt).format("MMM DD, YYYY")}
-                </span>
+                <span className="font-semibold">{comment.name}</span> on{" "}
+                {moment(comment.createdAt).format("MMM DD, YYYY")}
               </p>
               <p className="w-full text-gray-600 whitespace-pre-line">
                 {parse(comment.comment)}

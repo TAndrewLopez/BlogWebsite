@@ -7,7 +7,7 @@ interface CommentsFormProps {
 
 const CommentsForm: React.FC<CommentsFormProps> = ({ slug }) => {
   const [error, setError] = useState(false);
-  const [localStorage, setLocalStorage] = useState(null);
+  // const [localStorage, setLocalStorage] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
 
   const commentEl = useRef<HTMLTextAreaElement>(null);

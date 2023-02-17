@@ -49,20 +49,4 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   };
 };
 
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-//   const data = await getPostDetails(params.slug);
-//   return {
-//     props: { post: data },
-//   };
-// };
-
-// export const getStaticPaths = async () => {
-//   const posts = await getPosts();
-
-//   return {
-//     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-//     fallback: false,
-//   };
-// };
-
 export default SinglePostPage;
